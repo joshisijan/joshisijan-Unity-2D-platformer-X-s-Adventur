@@ -272,12 +272,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: b69133c0e839e204bad13573be9dde51, type: 2}
   gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
   joystick: {fileID: 0}
   horizontal: 0
-  lastHorizontal: 0
   rb: {fileID: 5585047139992285786}
   anim: {fileID: 5585047139992285782}
   jumpButton: {fileID: 0}
+  onGround: 0
 --- !u!114 &5585047139992285784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5585047139992285782}
   gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &5585047139992285791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
   playerStats: {fileID: 11400000, guid: b69133c0e839e204bad13573be9dde51, type: 2}
   energySlider: {fileID: 0}
   fireButton: {fileID: 0}

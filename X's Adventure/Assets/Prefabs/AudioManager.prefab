@@ -46,7 +46,43 @@ MonoBehaviour:
   sounds:
   - name: PlayerJump
     audioClip: {fileID: 8300000, guid: 1d43405c16d44d24890e9ebb77ac4d3a, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
-    source: {fileID: 0}
     loop: 0
+    source: {fileID: 0}
+  - name: PlayerFire
+    audioClip: {fileID: 8300000, guid: bb9703ba96ea9d54c89cdfb68f47c8be, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    audioClip: {fileID: 8300000, guid: 5c6ec3c731d797144907ff4c067143a4, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerPowerUp
+    audioClip: {fileID: 8300000, guid: ba60d3eff7a862141b4e487ee7159de1, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    audioClip: {fileID: 8300000, guid: dd0df8fa0f76e8343bc11b5b728de54a, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EnemyFire
+    audioClip: {fileID: 8300000, guid: bb9703ba96ea9d54c89cdfb68f47c8be, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHurt
+    audioClip: {fileID: 8300000, guid: 5c6ec3c731d797144907ff4c067143a4, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

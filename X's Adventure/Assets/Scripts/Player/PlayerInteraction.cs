@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     public Animator anim;
     public GameManager gameManager;
     public AudioManager audioManager;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,6 +31,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             isHurt();
         }
+        if (other.transform.CompareTag("Trap"))
+        {
+            isHurt();
+        }
     }
 
     void isHurt()
@@ -38,4 +44,5 @@ public class PlayerInteraction : MonoBehaviour
         anim.SetTrigger("isHurt");
         gameManager.DecreaseHealth();
     }
+
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     bool isMoving = false;
     bool isRoaming = true;
     float distance;
-    [NonSerialized]
+    [HideInInspector]
     public bool isDead = false;
 
 

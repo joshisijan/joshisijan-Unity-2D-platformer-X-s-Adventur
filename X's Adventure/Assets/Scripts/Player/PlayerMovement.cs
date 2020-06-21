@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameManager gameManager;
     public AudioManager audioManager;
     public Joystick joystick;
+    [HideInInspector]
     public float horizontal;
     public Rigidbody2D rb;
     public Animator anim;
@@ -16,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     float movementSpeed;
     float jumpForce;
-    bool onGround = false;
+    [HideInInspector]
+    public bool onGround = true;
     bool jumpTrigger = false;
 
     float cayoteConstant = 0.1f;
@@ -57,9 +59,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Enemy"))
+        if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Enemy") || other.transform.CompareTag("Trap"))
         {
-            onGround = true;
+            if(other.relativeVelocity.y > 0)
+            {
+                onGround = true;
+            }
+            else
+            {
+                onGround = false;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D other)
@@ -74,13 +83,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.transform.CompareTag("Ground"))
         {
-            onGround = true;
+            if(other.GetContact(0).point.y < transform.position.y)
+            { 
+            
+                onGround = true;
+            }
         }
     }
 
-
     // flip player
-    void Flip()
+    void Flip() 
     {
         if(horizontal > 0)
         {
@@ -112,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        audioManager.Play("PlayerJump");
         onGround = false;
         Vector2 velocity = rb.velocity;
         velocity.y = jumpForce * Time.fixedDeltaTime;
@@ -129,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("verticalVelocity", 0);
         }
     }
-
     IEnumerator CayotePhenomenon()
     {
         yield return new WaitForSeconds(cayoteConstant);

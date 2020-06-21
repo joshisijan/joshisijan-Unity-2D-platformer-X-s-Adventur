@@ -49,5 +49,7 @@ MonoBehaviour:
   heartText: {fileID: 0}
   anim: {fileID: 0}
   player: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
   levelCompleted: 0
   playerDead: 0
+  hearts: 3

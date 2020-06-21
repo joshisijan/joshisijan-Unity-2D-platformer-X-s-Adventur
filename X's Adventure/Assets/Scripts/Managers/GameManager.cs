@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,11 +11,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI heartText;
     public Animator anim;
     public Transform player;
+    public Canvas gameOverCanvas;
 
     public bool levelCompleted = false;
     public bool playerDead = false;
 
-    int hearts = 3;
+    [HideInInspector]
+    public int hearts = 3;
     int coinCollected = 0;
 
 
@@ -65,5 +68,12 @@ public class GameManager : MonoBehaviour
     {
         Destroy(player.gameObject, 1f);
         anim.SetTrigger("isDead");
+        StartCoroutine("GameOver");
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(1);
+        gameOverCanvas.gameObject.SetActive(true);
     }
 }
