@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         if (isDead) return;
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
         distanceWithPlayer = transform.position - player.transform.position;
         distance = distanceWithPlayer.magnitude;
         
@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (isDead) return;
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
         if (isMoving)
         {
             Vector2 velocity = rb.velocity;

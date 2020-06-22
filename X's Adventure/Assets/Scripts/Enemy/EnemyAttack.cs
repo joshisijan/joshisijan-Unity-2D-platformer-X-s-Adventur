@@ -6,7 +6,6 @@ public class EnemyAttack : MonoBehaviour
 {
     public EnemyStats enemyStats;
     public GameManager gameManager;
-    public AudioManager audioManager;
     public EnemyMovement enemyMovement;
     public GameObject bullet;
     public Transform hitPoint;
@@ -16,15 +15,17 @@ public class EnemyAttack : MonoBehaviour
     float reloadTime;
     bool canFire = true;
     bool onReload = false;
+    AudioManager audioManager;
 
     private void Awake()
     {
         reloadTime = enemyStats.reloadingTime;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
     {
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
         if (enemyMovement.isAttacking && !isDead)
         {
             if (canFire)

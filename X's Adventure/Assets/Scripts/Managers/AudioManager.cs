@@ -1,5 +1,4 @@
-﻿using UnityEngine.Audio;
-using System;
+﻿using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -11,15 +10,16 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
         {
             Destroy(gameObject);
             return;
         }
-
-        DontDestroyOnLoad(gameObject);
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.audioClip;

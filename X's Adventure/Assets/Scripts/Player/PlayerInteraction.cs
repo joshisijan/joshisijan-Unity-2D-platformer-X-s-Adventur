@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-
     public Animator anim;
     public GameManager gameManager;
-    public AudioManager audioManager;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,22 +31,19 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Bullet"))
+        if (other.transform.CompareTag("Bullet") || other.transform.CompareTag("Trap") || other.transform.CompareTag("Enemy"))
         {
-            isHurt();
-        }
-        if (other.transform.CompareTag("Trap"))
-        {
-            isHurt();
+            IsHurt();
         }
     }
 
-    void isHurt()
+    void IsHurt()
     {
         audioManager.Play("PlayerHurt");
         // for animation
         anim.SetTrigger("isHurt");
         gameManager.DecreaseHealth();
     }
+
 
 }

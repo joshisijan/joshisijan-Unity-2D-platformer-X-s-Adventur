@@ -201,7 +201,6 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   anim: {fileID: 2753986484733515203}
   enemyStats: {fileID: 11400000, guid: f7a97e9648bc22941914dd99bbb79b02, type: 2}
-  enemyAttack: {fileID: 8190286867613637929}
   enemyMovement: {fileID: 1956171517122513175}
   coinPrefab: {fileID: 2137844108291170332, guid: 1c533efa7fe42114fbca52ea984954ce,
     type: 3}
@@ -237,7 +236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: f7a97e9648bc22941914dd99bbb79b02, type: 2}
   gameManager: {fileID: 0}
-  audioManager: {fileID: 0}
   enemyMovement: {fileID: 1956171517122513175}
   bullet: {fileID: 7710368328146657931, guid: 365ba852380ae60408eff371bc1b6f51, type: 3}
   hitPoint: {fileID: 147134743}
@@ -290,7 +288,7 @@ MonoBehaviour:
   m_Color: {r: 0.5803922, g: 0.3019608, b: 0.2627451, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 7165c06d7f312f2b000000008924612285a16538efc24730
+  m_ApplyToSortingLayers: 7165c06d7f312f2b00000000630813e88924612285a16538efc24730
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

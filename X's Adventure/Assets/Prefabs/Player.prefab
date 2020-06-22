@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 7165c06d7f312f2b000000008924612285a16538efc24730
+  m_ApplyToSortingLayers: 7165c06d7f312f2b00000000630813e88924612285a16538efc24730
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -227,7 +227,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 50e8e63ca8481284ab0746407635cec7, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -241,7 +241,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5585047139992285783}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 50e8e63ca8481284ab0746407635cec7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -272,7 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: b69133c0e839e204bad13573be9dde51, type: 2}
   gameManager: {fileID: 0}
-  audioManager: {fileID: 0}
   joystick: {fileID: 0}
   horizontal: 0
   rb: {fileID: 5585047139992285786}
@@ -293,7 +292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5585047139992285782}
   gameManager: {fileID: 0}
-  audioManager: {fileID: 0}
 --- !u!114 &5585047139992285791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  audioManager: {fileID: 0}
   playerStats: {fileID: 11400000, guid: b69133c0e839e204bad13573be9dde51, type: 2}
   energySlider: {fileID: 0}
   fireButton: {fileID: 0}

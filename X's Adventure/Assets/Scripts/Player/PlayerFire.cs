@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class PlayerFire : MonoBehaviour
 {
     public GameManager gameManager;
-    public AudioManager audioManager;
     public PlayerStats playerStats;
     public Slider energySlider;
     public FireButton fireButton;
@@ -13,7 +12,7 @@ public class PlayerFire : MonoBehaviour
     public Transform bulletParent;
     public Image energyFillArea;
 
-
+    AudioManager audioManager;
     Color energyFillColor;
     bool fired = false;
     float energyIncreaser;
@@ -21,8 +20,9 @@ public class PlayerFire : MonoBehaviour
 
     private void Awake()
     {
-         energyIncreaser = playerStats.energyIncreaser;
-         firePower = playerStats.firePower;
+        energyIncreaser = playerStats.energyIncreaser;
+        firePower = playerStats.firePower;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
         //for bottom slider
         if (!fireButton.firePressed)
         {

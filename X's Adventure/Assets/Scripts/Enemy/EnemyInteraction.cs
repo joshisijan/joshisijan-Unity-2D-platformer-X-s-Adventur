@@ -1,19 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyInteraction : MonoBehaviour
 {
     public AudioManager audioManager;
     public Animator anim;
     public EnemyStats enemyStats;
-    public EnemyAttack enemyAttack;
     public EnemyMovement enemyMovement;
     public GameObject coinPrefab;
 
     int health;
+    EnemyAttack enemyAttack;
 
     private void Awake()
     {
         health = enemyStats.health;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)

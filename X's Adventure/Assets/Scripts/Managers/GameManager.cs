@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public LevelStats levelStats;
     public PlayerStats playerStats;
-    public TextMeshProUGUI coinText;
-    public TextMeshProUGUI heartText;
+    public Text coinText;
+    public Text heartText;
     public Animator anim;
     public Transform player;
     public Canvas gameOverCanvas;
+    public Canvas pauseCanvas;
 
     public bool levelCompleted = false;
     public bool playerDead = false;
@@ -20,11 +21,16 @@ public class GameManager : MonoBehaviour
     public int hearts = 3;
     int coinCollected = 0;
 
+    [HideInInspector]
+    public bool isPaused = false;
+
 
     private void Awake()
     {
         hearts = playerStats.health;
+        isPaused = false;
     }
+
 
     private void Update()
     {
@@ -66,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     void PlayerDead()
     {
-        Destroy(player.gameObject, 1f);
         anim.SetTrigger("isDead");
         StartCoroutine("GameOver");
     }
@@ -74,6 +79,14 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1);
+        player.gameObject.SetActive(false);
         gameOverCanvas.gameObject.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        pauseCanvas.gameObject.SetActive(true);
+        Debug.Log(isPaused);
     }
 }

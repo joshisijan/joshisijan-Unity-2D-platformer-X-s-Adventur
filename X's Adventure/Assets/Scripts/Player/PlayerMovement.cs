@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public PlayerStats playerStats;
     public GameManager gameManager;
-    public AudioManager audioManager;
     public Joystick joystick;
     [HideInInspector]
     public float horizontal;
@@ -15,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public JumpButton jumpButton;
 
+    AudioManager audioManager;
     float movementSpeed;
     float jumpForce;
     [HideInInspector]
@@ -28,17 +28,17 @@ public class PlayerMovement : MonoBehaviour
     {
         movementSpeed = playerStats.movementSpeed;
         jumpForce = playerStats.jumpForce;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
     {
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
 
         //get horizontal value from joystick
         horizontal = joystick.Horizontal;
 
         //get jump value from button
-
         jumpTrigger = jumpButton.JumpPressed;
 
         //For flipping player
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         JumpAndFallAnimation();
-        if (gameManager.playerDead) return;
+        if (gameManager.playerDead || gameManager.isPaused) return;
         HorizontalMovement();
 
         if (jumpTrigger && onGround)
@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.CompareTag("Ground") || other.transform.CompareTag("Enemy") || other.transform.CompareTag("Trap"))

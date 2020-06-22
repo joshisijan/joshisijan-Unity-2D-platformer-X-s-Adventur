@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class GameNavigations : MonoBehaviour
 {
-    public void RestartGame()
+    public void RestartLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

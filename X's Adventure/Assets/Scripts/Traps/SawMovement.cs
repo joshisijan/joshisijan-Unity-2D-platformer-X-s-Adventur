@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SawMovement : MonoBehaviour
 {
@@ -9,31 +8,40 @@ public class SawMovement : MonoBehaviour
 
     float movingSpeed;
     int horizontal = -1;
-    float retrackTime;
 
     private void Awake()
     {
         movingSpeed = movingSaw.movingSpeed;
-        retrackTime = movingSaw.retrackTime;
+    }
+
+    private void Start()
+    {
+        if(Random.Range(0, 100) > 50){
+            horizontal = 1;
+        }
+        else
+        {
+            horizontal = -1;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (gameManager.isPaused) return;
         MoveSaw();   
     }
 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.transform.CompareTag("Player"))
+        if (!other.transform.CompareTag("Bullet"))
         {
             horizontal = -horizontal;
         }
-        else
-        {
-            StartCoroutine("HitPlayer");
-        }
     }
+
+
+
 
     void MoveSaw()
     {
@@ -42,10 +50,5 @@ public class SawMovement : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    IEnumerator HitPlayer()
-    {
-        horizontal = -horizontal;
-        yield return new WaitForSeconds(retrackTime);
-        horizontal = -horizontal;
-    }
+
 }
