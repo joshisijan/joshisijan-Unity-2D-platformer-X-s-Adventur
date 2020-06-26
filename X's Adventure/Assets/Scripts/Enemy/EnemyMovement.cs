@@ -4,7 +4,6 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public EnemyStats enemyStats;
-    public GameManager gameManager;
     public Rigidbody2D rb;
     public Animator anim;
     public bool isAttacking = false;
@@ -20,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
     bool isRoaming = true;
     float distance;
     [HideInInspector]
-    public bool isDead = false;
 
 
     private void Awake()
@@ -34,8 +32,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isDead) return;
-        if (gameManager.playerDead || gameManager.isPaused) return;
         distanceWithPlayer = transform.position - player.transform.position;
         distance = distanceWithPlayer.magnitude;
         
@@ -73,8 +69,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDead) return;
-        if (gameManager.playerDead || gameManager.isPaused) return;
         if (isMoving)
         {
             Vector2 velocity = rb.velocity;
@@ -142,7 +136,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (gameManager.playerDead) return;
         if (!other.transform.CompareTag("Player") && isRoaming)
         {
             horizontal = -horizontal;

@@ -3,7 +3,6 @@
 public class SawMovement : MonoBehaviour
 {
     public MovingSaw movingSaw;
-    public GameManager gameManager;
     public Rigidbody2D rb;
 
     float movingSpeed;
@@ -27,7 +26,6 @@ public class SawMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.isPaused) return;
         MoveSaw();   
     }
 

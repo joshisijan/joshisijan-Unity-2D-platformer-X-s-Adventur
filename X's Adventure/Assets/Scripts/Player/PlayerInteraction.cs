@@ -4,13 +4,14 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public Animator anim;
-    public GameManager gameManager;
 
+    GameManager gameManager;
     AudioManager audioManager;
 
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

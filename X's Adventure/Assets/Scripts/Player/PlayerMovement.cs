@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerStats playerStats;
-    public GameManager gameManager;
     public Joystick joystick;
     [HideInInspector]
     public float horizontal;
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.playerDead || gameManager.isPaused) return;
 
         //get horizontal value from joystick
         horizontal = joystick.Horizontal;
@@ -48,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         JumpAndFallAnimation();
-        if (gameManager.playerDead || gameManager.isPaused) return;
         HorizontalMovement();
 
         if (jumpTrigger && onGround)

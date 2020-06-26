@@ -44,8 +44,6 @@ public class EnemyInteraction : MonoBehaviour
     void IsDead()
     {
         Destroy(gameObject, 0.4f);
-        enemyAttack.isDead = true;
-        enemyMovement.isDead = true;
         anim.SetTrigger("isDead");
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
     }

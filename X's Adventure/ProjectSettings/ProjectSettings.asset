@@ -41,10 +41,10 @@ PlayerSettings:
     height: 1
   m_SplashScreenLogos:
   - logo: {fileID: -6056987297122131021, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
-    duration: 2
+    duration: 3
   - logo: {fileID: 8416797952724722639, guid: d348dff3819df794186a80cb95777629, type: 3}
-    duration: 2
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 5c8b2ada1a819a54e8c051165c738f18,
+    duration: 3
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 320f4eb52e227b446830a1f6fd691fca,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -56,7 +56,7 @@ PlayerSettings:
   m_MTRendering: 1
   m_StackTraceTypes: 000000000000000000000000000000000000000001000000
   iosShowActivityIndicatorOnLoading: -1
-  androidShowActivityIndicatorOnLoading: 2
+  androidShowActivityIndicatorOnLoading: 0
   iosUseCustomAppBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 0
@@ -413,7 +413,7 @@ PlayerSettings:
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
   - m_BuildTarget: Android
-    m_EncodingQuality: 2
+    m_EncodingQuality: 0
   m_BuildTargetGroupLightmapSettings: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0

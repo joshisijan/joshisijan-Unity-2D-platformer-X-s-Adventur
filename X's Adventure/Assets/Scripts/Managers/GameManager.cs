@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //public static GameManager instance;
+
     public LevelStats levelStats;
     public PlayerStats playerStats;
-    public Text coinText;
-    public Text heartText;
-    public Animator anim;
-    public Transform player;
-    public Canvas gameOverCanvas;
-    public Canvas pauseCanvas;
+    Text coinText, heartText;
+    Animator anim;
+    Transform player;
+    Canvas gameOverCanvas;
 
+    [HideInInspector]
     public bool levelCompleted = false;
+    [HideInInspector]
     public bool playerDead = false;
-
     [HideInInspector]
     public int hearts = 3;
     int coinCollected = 0;
@@ -27,8 +28,29 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        hearts = playerStats.health;
+        //if(instance == null)
+        //{
+        //    instance = this;
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+        //DontDestroyOnLoad(gameObject);
+        coinText = GameObject.FindGameObjectWithTag("CoinText").GetComponent<Text>();
+        heartText = GameObject.FindGameObjectWithTag("HeartText").GetComponent<Text>();
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        gameOverCanvas = GameObject.FindGameObjectWithTag("GameOverCanvas").GetComponent<Canvas>();
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1;
         isPaused = false;
+        playerDead = false;
+        hearts = playerStats.health;
     }
 
 
@@ -78,15 +100,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(1);
-        player.gameObject.SetActive(false);
-        gameOverCanvas.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        PauseGame();
+        gameOverCanvas.enabled = true;
     }
 
     public void PauseGame()
     {
-        isPaused = true;
-        pauseCanvas.gameObject.SetActive(true);
-        Debug.Log(isPaused);
+        Time.timeScale = 0;
     }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
 }

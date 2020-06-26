@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public EnemyStats enemyStats;
-    public GameManager gameManager;
     public EnemyMovement enemyMovement;
     public GameObject bullet;
     public Transform hitPoint;
@@ -25,8 +24,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.playerDead || gameManager.isPaused) return;
-        if (enemyMovement.isAttacking && !isDead)
+        if (enemyMovement.isAttacking)
         {
             if (canFire)
             {

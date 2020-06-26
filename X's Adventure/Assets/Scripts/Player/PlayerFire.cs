@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerFire : MonoBehaviour
 {
-    public GameManager gameManager;
     public PlayerStats playerStats;
     public Slider energySlider;
     public FireButton fireButton;
@@ -33,7 +32,6 @@ public class PlayerFire : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.playerDead || gameManager.isPaused) return;
         //for bottom slider
         if (!fireButton.firePressed)
         {

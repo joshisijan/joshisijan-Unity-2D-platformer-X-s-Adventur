@@ -4,6 +4,15 @@ public class Door : MonoBehaviour
 {
     public GameManager gameManager;
     public Animator anim;
+    public GameNavigations gameNavigations;
+    public LevelStats levelStat;
+
+    MyPrefs myPrefs;
+
+    private void Awake()
+    {
+        myPrefs = FindObjectOfType<MyPrefs>();
+    }
 
     private void Update()
     {
@@ -17,7 +26,8 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player") && gameManager.levelCompleted)
         {
-            Debug.Log("going to next level");
+            int level = levelStat.level + 1;
+            myPrefs.SetLevel(level, true);
         }
     }
 }
