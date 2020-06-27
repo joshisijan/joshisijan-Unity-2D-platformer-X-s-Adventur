@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   coinCount: 4
+  level: 1

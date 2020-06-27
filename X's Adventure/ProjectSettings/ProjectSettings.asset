@@ -738,10 +738,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: aecff57c-7355-4870-bc8b-2fd642f76d62
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: X's adventure
+  organizationId: joshisijan96
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

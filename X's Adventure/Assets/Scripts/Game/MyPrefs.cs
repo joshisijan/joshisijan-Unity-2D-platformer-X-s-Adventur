@@ -1,16 +1,15 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MyPrefs : MonoBehaviour
 {
     public static MyPrefs instance;
+
     public GameStats gameStats;
-    public Canvas progressCanvas;
+ 
     private void Awake()
     {
         if(instance == null)
@@ -93,9 +92,11 @@ public class MyPrefs : MonoBehaviour
 
     IEnumerator LoadLevelAsync(string name)
     {
+        GameObject progressCanvas;
+        progressCanvas = GameObject.FindGameObjectWithTag("ProgressCanvas");
         Slider progressSlider = progressCanvas.GetComponentInChildren<Slider>();
         Text progressText = progressCanvas.GetComponentInChildren<Text>();
-        progressCanvas.gameObject.SetActive(true);
+        progressCanvas.GetComponent<Canvas>().enabled = true;
         AsyncOperation operation = SceneManager.LoadSceneAsync(name);
         while (!operation.isDone)
         {

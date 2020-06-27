@@ -47,6 +47,9 @@ public class PlayerFire : MonoBehaviour
             energyFillArea.color = energyFillColor;
         }
 
+        if (Time.timeScale == 0)
+            return;
+
         if (fireButton.firePressed && !fired && energySlider.value >= firePower)
         {
             DecreaseEnergyValue();

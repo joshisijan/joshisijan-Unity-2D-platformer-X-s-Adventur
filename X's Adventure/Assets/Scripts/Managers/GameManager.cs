@@ -28,16 +28,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //if(instance == null)
-        //{
-        //    instance = this;
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
-        //DontDestroyOnLoad(gameObject);
         coinText = GameObject.FindGameObjectWithTag("CoinText").GetComponent<Text>();
         heartText = GameObject.FindGameObjectWithTag("HeartText").GetComponent<Text>();
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -72,9 +62,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth()
+    public void IncreaseHealth(int n = 1)
     {
-        hearts++;
+        hearts += n;
         if(hearts > playerStats.maxHealth)
         {
             hearts = playerStats.maxHealth;
@@ -114,5 +104,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
 }

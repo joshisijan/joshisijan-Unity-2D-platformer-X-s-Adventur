@@ -1,5 +1,5 @@
 step 1: use level base
-step 2: add necessary managers GameManager, GameNavigations, MyPrefs, AudioManager
+step 2: add necessary managers GameManager, GameNavigations, MyPrefs, AudioManager, Ad Manager
 step 3: add level stats in door
 step 4: add level stats and player stats in door
 step 5: check for gameStats for necessary adjustments
